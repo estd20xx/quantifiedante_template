@@ -8,12 +8,12 @@ import AppHeader from "./AppHeader"
 import AppSidebar from "./AppSidebar"
 import Backdrop from "./Backdrop"
 
-import { websiteurl } from "@/constants/myapi"
+import { websiteUrl } from "@/constants/myapi"
 
 const RedirectComp = () => {
   useEffect(() => {
     setTimeout(() => {
-      window.location.replace(websiteurl() as string)
+      window.location.replace(websiteUrl as string)
     }, 3000)
   })
 

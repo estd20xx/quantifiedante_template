@@ -21,7 +21,9 @@ export const MembershipProvider: React.FC<{ children: React.ReactNode }> = ({ ch
 
   useEffect(() => {
     const userID = localStorage.getItem("user_id")
+
     if (!userID) return
+
     setIsMembershipLoading(true)
     const fetchPlan = async () => {
       try {
@@ -32,7 +34,6 @@ export const MembershipProvider: React.FC<{ children: React.ReactNode }> = ({ ch
           setExpiryDatePlan(response.data.expiry_date)
         }
       } catch (err) {
-        console.error("Failed to fetch membership plan", err)
       } finally {
         setIsMembershipLoading(false)
       }

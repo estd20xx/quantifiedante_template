@@ -17,7 +17,7 @@ import { ReactComponent as TrainingIndicator } from "../icons/TradingIndicators.
 import { ReactComponent as TrainingAcademy } from "../icons/TT.svg"
 import { ReactComponent as AccountCenter } from "../icons/User.svg"
 
-import { adminURL, websiteurl } from "@/constants/myapi"
+import { adminPanelUrl, websiteUrl } from "@/constants/myapi"
 import { useMembership } from "@/hooks/useMembership"
 
 const memberArray = ["Novice", "Professional", "Elite"]
@@ -60,7 +60,7 @@ const newNavItems: Array<NavInterface> = [
           },
           {
             name: "Users",
-            path: adminURL() + "/auth?user_id=123&to=users",
+            path: adminPanelUrl + "/auth?user_id=123&to=users",
           },
           {
             name: "Subscription",
@@ -413,7 +413,7 @@ const newNavItems: Array<NavInterface> = [
           { name: "Messages", path: "#", pro: false, novice: false, elite: false },
           {
             name: "Contact Us",
-            path: websiteurl() + "contact-us",
+            path: websiteUrl + "contact-us",
             pro: false,
             novice: false,
             elite: false,
@@ -487,7 +487,7 @@ const AppSidebar: React.FC = () => {
       <div
         className={`py-8 flex ${!isExpanded && !isHovered ? "lg:justify-center" : "justify-start"} hidden lg:block`}
       >
-        <a href={`${websiteurl()}`}>
+        <a href={`${websiteUrl}`}>
           {isExpanded || isHovered || isMobileOpen ? (
             <>
               <img

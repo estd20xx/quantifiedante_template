@@ -1,12 +1,14 @@
-import { websiteurl } from "@/constants/myapi"
 import { navigationStringWebsite } from "../navigationStrings/NavigationStrings"
+
+import { websiteUrl } from "@/constants/myapi"
 
 export interface SearchTypes {
   title: string
   url: string
   data: string
 }
-const url = websiteurl() as string
+const url = websiteUrl as string
+
 export const dataList: Array<SearchTypes> = [
   {
     title: "Home",

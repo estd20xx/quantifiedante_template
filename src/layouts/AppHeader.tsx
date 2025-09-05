@@ -4,12 +4,9 @@ import NewNotificationDropDown from "../components/header/NewNotificationDropDow
 import UserDropDownNew from "../components/header/UserDropDownNew"
 import { useSidebar } from "../context/SidebarContext"
 import { useSearch } from "../hooks/useSearch"
-import axios from "../lib/axios"
 
 import Search from "@/components/header/Search"
-import { websiteurl } from "@/constants/myapi"
-import { useBrokerLoginStatus } from "@/context/Broker_Login_status_Fetch"
-import { useDateAccount } from "@/context/DateAccountContextProvider"
+import { websiteUrl } from "@/constants/myapi"
 
 interface UserInfo {
   user_contact: string
@@ -30,9 +27,6 @@ const AppHeader: React.FC = () => {
   const { isMobileOpen, toggleSidebar, toggleMobileSidebar, isApplicationMenuOpen, setApplicationMenuOpen } =
     useSidebar()
 
-  const { apiAccessToken } = useDateAccount()
-  const { broker_login_status } = useBrokerLoginStatus()
-
   const [isTooltipOpen, setIsTooltipOpen] = useState(false)
 
   const [userInfoData, setUserInfoData] = useState<UserInfo>({
@@ -47,24 +41,6 @@ const AppHeader: React.FC = () => {
     user_username: "",
     user_profile: "",
   })
-
-  const fetchUserInformation = async () => {
-    if (!apiAccessToken) return
-    try {
-      const response = await axios.get(`user_information/?user_id=${localStorage.getItem("user_id")}`, {
-        headers: { Authorization: `Bearer ${apiAccessToken}` },
-      })
-
-      setUserInfoData(response.data.data)
-      // localStorage.setItem("user_name", response.data.data?.user_first_name ?? "")
-    } catch (error) {
-      console.error("Error fetching user information:", error)
-    }
-  }
-
-  useEffect(() => {
-    // fetchUserInformation()
-  }, [apiAccessToken])
 
   const handleToggle = () => {
     if (window.innerWidth >= 991) {
@@ -138,7 +114,7 @@ const AppHeader: React.FC = () => {
             {/* Cross Icon */}
           </button>
 
-          <a className="lg:hidden" href={`${websiteurl()}`}>
+          <a className="lg:hidden" href={`${websiteUrl}`}>
             <img
               alt="Logo"
               className="dark:hidden"
@@ -218,70 +194,14 @@ const AppHeader: React.FC = () => {
         >
           <div className="flex items-center gap-2 2xsm:gap-4 ">
             <NewNotificationDropDown />
-            {/* <!-- Dark Mode Toggler --> */}
             {/* <ThemeToggleButton /> */}
-            {/* <!-- Dark Mode Toggler --> */}
-            {/* <NotificationDropdown /> */}
-
-            {/* <Brocker_Login /> */}
           </div>
-          {/* <!-- User Area --> */}
           <div
             className="flex items-center justify-center gap-2 lg:gap-4
           "
           >
             {localStorage.getItem("user_name") && <UserDropDownNew />}
-
-            {/* Trading status with Halted text positioned below */}
-            <div className="relative">
-              <div>
-                {broker_login_status?.user_trade_status === "no" ? (
-                  <button
-                    className="h-12 gap-3 py-3 px-4 md:px-6 border border-grayBorder rounded-md flex items-center text-xs font-semibold text-[#262626] whitespace-nowrap"
-                    // onClick={toggleTradeStatus}
-                  >
-                    Trading is Off
-                    <span className="relative flex size-2">
-                      <span className="absolute inline-flex h-2 w-2 animate-ping rounded-full bg-inactiveText" />
-                      <span className="relative inline-flex size-2 rounded-full bg-inactiveText" />
-                    </span>
-                  </button>
-                ) : (
-                  <button
-                    className="h-12 gap-3 py-3 px-4 md:px-6 border border-grayBorder rounded-md flex items-center text-xs font-semibold text-[#262626] whitespace-nowrap"
-                    // onClick={toggleTradeStatus}
-                  >
-                    Trading is On
-                    <span className="relative flex size-2">
-                      <span className="absolute inline-flex h-2 w-2 animate-ping rounded-full bg-greenSurface" />
-                      <span className="relative inline-flex size-2 rounded-full bg-greenSurface" />
-                    </span>
-                  </button>
-                )}
-              </div>
-
-              {/* <Tooltip 
-                content="Trading is currently halted "
-                placement="bottom"
-                showArrow={true}
-                color="danger"
-                className="max-w-xs"
-                isOpen={isTooltipOpen}
-                onOpenChange={setIsTooltipOpen}
-              >
-                <span 
-                  className="absolute right-1 transform  top-full mt-0 text-red-500 text-xs font-semibold cursor-pointer hover:text-red-600 dark:text-red-400 dark:hover:text-red-300 transition-colors duration-200"
-                  onClick={() => setIsTooltipOpen(!isTooltipOpen)}
-                  onTouchStart={() => setIsTooltipOpen(true)}
-                  onTouchEnd={() => setTimeout(() => setIsTooltipOpen(false), 2000)}
-                >
-                  Halted
-                </span>
-              </Tooltip> */}
-            </div>
           </div>
-
-          {/* <UserDropdown /> */}
         </div>
       </div>
     </header>

@@ -19,7 +19,7 @@ import { ReactComponent as TrainingIndicators } from "../../icons/quantified-ant
 //@ts-ignore
 import { ReactComponent as TrainingAcademy } from "../../icons/quantified-ante-sidebar-menu-training-academy-default-icon-light-mode copy.svg"
 
-import { frontendurl, websiteurl } from "@/constants/myapi"
+import { frontendUrl, websiteUrl } from "@/constants/myapi"
 import { MemberType, useMembership } from "@/hooks/useMembership"
 const user_id = localStorage.getItem("user_id")
 
@@ -31,31 +31,31 @@ export const usersDropDown: Array<{
 }> = [
   {
     title: "Predictive Tools",
-    link: `${frontendurl()}auth?user_id=${user_id}&to=dashboard`,
+    link: `${frontendUrl}auth?user_id=${user_id}&to=dashboard`,
     icons: <PredectiveApplication className="w-6 h-6" />,
     memberShip: "Novice",
   },
   {
     title: "Trading Indicators",
-    link: `${frontendurl()}auth?user_id=${user_id}&to=trading-indicators`,
+    link: `${frontendUrl}auth?user_id=${user_id}&to=trading-indicators`,
     icons: <TrainingIndicators className="w-6 h-6" />,
     memberShip: "",
   },
   {
     title: "Training Academy",
-    link: `${frontendurl()}auth?user_id=${user_id}&to=training-academy`,
+    link: `${frontendUrl}auth?user_id=${user_id}&to=training-academy`,
     icons: <TrainingAcademy className="w-6 h-6" />,
     memberShip: "Novice",
   },
   {
     title: "Portfolio Management",
-    link: `${frontendurl()}auth?user_id=${user_id}&to=portfolio-managament`,
+    link: `${frontendUrl}auth?user_id=${user_id}&to=portfolio-managament`,
     icons: <PortfolioManagement className="w-6 h-6" />,
     memberShip: "Novice",
   },
   {
     title: "Sentiment Subscriptions",
-    link: `${frontendurl()}auth?user_id=${user_id}&to=sentiment-subscriptions`,
+    link: `${frontendUrl}auth?user_id=${user_id}&to=sentiment-subscriptions`,
     icons: <Sentimental className="w-6 h-6" />,
     memberShip: "Novice",
   },
@@ -78,7 +78,7 @@ const Dropdown = () => {
     // Optionally clear all localStorage data
     // localStorage.clear();
 
-    window.location.replace(`${websiteurl()}`)
+    window.location.replace(`${websiteUrl}`)
   }
 
   const { memberShipPlan, expiryDatePlan } = useMembership()
@@ -213,7 +213,7 @@ const Dropdown = () => {
                 role="button"
                 tabIndex={-1243}
                 onClick={() =>
-                  (window.location.href = `${frontendurl()}auth?user_id=${user_id}&to=account-center`)
+                  (window.location.href = `${frontendUrl}auth?user_id=${user_id}&to=account-center`)
                 }
                 onKeyDown={() => {}}
               >
@@ -228,7 +228,7 @@ const Dropdown = () => {
                 role="button"
                 tabIndex={-124343}
                 onClick={() =>
-                  (window.location.href = `${frontendurl()}auth?user_id=${user_id}&to=support-center`)
+                  (window.location.href = `${frontendUrl}auth?user_id=${user_id}&to=support-center`)
                 }
                 onKeyDown={() => {}}
               >
