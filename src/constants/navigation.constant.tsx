@@ -9,9 +9,6 @@ import { ReactComponent as TradeDesk } from "../icons/TradeDesk.svg"
 import { ReactComponent as TrainingIndicator } from "../icons/TradingIndicators.svg"
 import { ReactComponent as TrainingAcademy } from "../icons/TT.svg"
 import { ReactComponent as AccountCenter } from "../icons/User.svg"
-import { navigationStrings } from "../navigationStrings/NavigationStrings"
-
-import { websiteUrl } from "./myapi"
 
 type NavItem = {
   name: string
@@ -52,7 +49,7 @@ export const newNavItems: Array<NavInterface> = [
         subItems: [
           {
             name: "Active Positions",
-            path: navigationStrings.activePositions,
+            path: "#",
             pro: false,
             novice: false,
             elite: false,
@@ -60,19 +57,18 @@ export const newNavItems: Array<NavInterface> = [
           },
           {
             name: "Account Connections",
-            path: navigationStrings.accountCenter,
+            path: "#",
             pro: true,
             novice: false,
             elite: false,
           },
           {
             name: "Market Impacts",
-            path: navigationStrings.marketImpactCalender,
+            path: "#",
             pro: false,
             novice: false,
             elite: false,
           },
-          // { name: "General Settings", path: "/setting", pro: false, novice: false, elite: false }
         ],
       },
       {
@@ -82,58 +78,54 @@ export const newNavItems: Array<NavInterface> = [
         novice: true,
         elite: false,
         subItems: [
-          { name: "Dashboard", path: navigationStrings.main, pro: false, novice: false, elite: false },
+          { name: "Dashboard", path: "#", pro: false, novice: false, elite: false },
           {
             name: "Performance",
-            path: navigationStrings.performance,
+            path: "#",
             pro: false,
             novice: false,
             elite: false,
           },
-          { name: "Orders", path: navigationStrings.orders, pro: false, novice: false, elite: false },
+          { name: "Orders", path: "#", pro: false, novice: false, elite: false },
           {
             name: "Position History",
-            path: navigationStrings.positionHistory,
+            path: "#",
             pro: false,
             novice: false,
             elite: false,
           },
           {
             name: "Cash History",
-            path: navigationStrings.cashHistory,
+            path: "#",
             pro: false,
             novice: false,
             elite: false,
           },
-          { name: "Fills", path: navigationStrings.fills, pro: false, novice: false, elite: false },
+          { name: "Fills", path: "#", pro: false, novice: false, elite: false },
           {
             name: "Account Balance History",
-            path: navigationStrings.accountBalanceHistory,
+            path: "#",
             pro: false,
             novice: false,
             elite: false,
           },
           {
             name: "Execution Report",
-            path: navigationStrings.executionReport,
+            path: "#",
             pro: false,
             novice: false,
             elite: false,
           },
           {
             name: "Accounts P&L",
-            path: navigationStrings.accountProfitNLoss,
+            path: "#",
             pro: false,
             novice: false,
             elite: false,
           },
-          // { name: "Order Execution", path: "/order-execution", pro: false },
-          // { name: "Final Order Execution", path: "/final-order-execution", pro: false },
-          // { name: "Daily Orders", path: "/today-order", pro: false }
-          // { name: "User", path: "/user-information", pro: false }
           {
             name: "Sloan Insights",
-            path: navigationStrings.slonInsigts,
+            path: "#",
             pro: true,
             novice: false,
             elite: false,
@@ -143,7 +135,7 @@ export const newNavItems: Array<NavInterface> = [
       {
         icon: <TradeDesk />,
         name: "Trade Desk",
-        path: navigationStrings.tradeDesk,
+        path: "#",
         pro: true,
         novice: false,
         elite: false,
@@ -151,7 +143,7 @@ export const newNavItems: Array<NavInterface> = [
       {
         icon: <EchoCopier />,
         name: "Echo Copier",
-        path: navigationStrings.echoCopier,
+        path: "#",
         pro: false,
         novice: false,
         elite: true,
@@ -160,7 +152,7 @@ export const newNavItems: Array<NavInterface> = [
       {
         icon: <SimulationVerse />,
         name: "Simulation Verse",
-        path: navigationStrings.simulationVerse,
+        path: "#",
         pro: true,
         novice: false,
         elite: false,
@@ -175,12 +167,12 @@ export const newNavItems: Array<NavInterface> = [
         subItems: [
           {
             name: "Currently Active",
-            path: navigationStrings.currentlyActive,
+            path: "#",
             pro: false,
             novice: false,
             elite: false,
           },
-          { name: "To Explore", path: navigationStrings.toExplore, pro: false, novice: false, elite: false },
+          { name: "To Explore", path: "#", pro: false, novice: false, elite: false },
         ],
       },
     ],
@@ -190,7 +182,6 @@ export const newNavItems: Array<NavInterface> = [
     items: [
       {
         name: "Training Academy",
-        // path: navigationStrings.trainingAcademy,
         icon: <TrainingAcademy />,
         pro: false,
         novice: true,
@@ -198,28 +189,28 @@ export const newNavItems: Array<NavInterface> = [
         subItems: [
           {
             name: "All Courses",
-            path: navigationStrings.allCourses,
+            path: "#",
             pro: false,
             novice: false,
             elite: false,
           },
           {
             name: "Active Courses",
-            path: navigationStrings.activeCourses,
+            path: "#",
             pro: false,
             novice: false,
             elite: false,
           },
           {
             name: "Completed Courses",
-            path: navigationStrings.completedCoursed,
+            path: "#",
             pro: false,
             novice: false,
             elite: false,
           },
           {
             name: "Certificates",
-            path: navigationStrings.certificate,
+            path: "#",
             pro: false,
             novice: false,
             elite: false,
@@ -249,14 +240,14 @@ export const newNavItems: Array<NavInterface> = [
         subItems: [
           {
             name: "Weekly Top Down",
-            path: navigationStrings.weeklyTopDown,
+            path: "#",
             pro: false,
             novice: false,
             elite: false,
           },
           {
             name: "Timely Bytes",
-            path: navigationStrings.timelyBytes,
+            path: "#",
             pro: false,
             novice: false,
             elite: false,
@@ -277,36 +268,35 @@ export const newNavItems: Array<NavInterface> = [
         elite: false,
         isPublic: true,
         subItems: [
-          { name: "Dashboard", path: navigationStrings.dashboard, pro: false, novice: false, elite: false },
-          { name: "Orders", path: navigationStrings.accountOrder, pro: false, novice: false, elite: false },
-          { name: "Downloads", path: navigationStrings.downloads, pro: false, novice: false, elite: false },
+          { name: "Dashboard", path: "#", pro: false, novice: false, elite: false },
+          { name: "Orders", path: "#", pro: false, novice: false, elite: false },
+          { name: "Downloads", path: "#", pro: false, novice: false, elite: false },
           {
             name: "Subscriptions",
-            path: navigationStrings.subscriptions,
+            path: "#",
             pro: false,
             novice: false,
             elite: false,
           },
           {
             name: "Wallets & Addresses",
-            path: navigationStrings.wallets,
+            path: "#",
             pro: false,
             novice: false,
             elite: false,
           },
-          // { name: "Message Center", path: "/account/message-center", pro: false, novice: false, elite: false },
 
-          { name: "Gift Cards", path: navigationStrings.giftCard, pro: false, novice: false, elite: false },
+          { name: "Gift Cards", path: "#", pro: false, novice: false, elite: false },
           {
             name: "Communication Preferences",
-            path: navigationStrings.communicationPreferences,
+            path: "#",
             pro: false,
             novice: false,
             elite: false,
           },
           {
             name: "Proprietary Indicators",
-            path: navigationStrings.proprietaryIndicators,
+            path: "#",
             pro: false,
             novice: false,
             elite: false,
@@ -314,7 +304,7 @@ export const newNavItems: Array<NavInterface> = [
 
           {
             name: "Account Settings",
-            path: navigationStrings.settings,
+            path: "#",
             pro: false,
             novice: false,
             elite: false,
@@ -334,16 +324,14 @@ export const newNavItems: Array<NavInterface> = [
         elite: false,
         isPublic: true,
         subItems: [
-          { name: "Ask Sloan", path: navigationStrings.askSolon, pro: false, novice: false, elite: false },
-          { name: "Messages", path: navigationStrings.messages, pro: false, novice: false, elite: false },
+          { name: "Ask Sloan", path: "#", pro: false, novice: false, elite: false },
+          { name: "Messages", path: "#", pro: false, novice: false, elite: false },
           {
             name: "Contact Us",
-            path: websiteUrl + "contact-us",
+            path: "#",
             pro: false,
             novice: false,
             elite: false,
-            crossDomain: true,
-            newTab: true,
           },
         ],
       },
