@@ -17,7 +17,7 @@ interface GloballyButtonProps {
 const sizeClasses: Record<ButtonSize, string> = {
   small: "px-3 py-2 text-sm rounded-md",
   medium: "px-6 py-2 text-base rounded-md",
-  large: "px-9 py-3 text-lg rounded-md"
+  large: "px-9 py-3 text-lg rounded-md",
 }
 
 const variantClasses: Record<ButtonVariant, string> = {
@@ -32,7 +32,7 @@ const variantClasses: Record<ButtonVariant, string> = {
     hover:bg-white hover:text-black
     active:bg-whiteActive active:text-black active:border border-whiteActive
     disabled:bg-transparent disabled:text-white/30 disabled:border-white/30
-  `
+  `,
 }
 
 const GloballyButton: React.FC<GloballyButtonProps> = ({
@@ -42,7 +42,7 @@ const GloballyButton: React.FC<GloballyButtonProps> = ({
   type = "button",
   disabled = false,
   size = "medium",
-  variant = "solid"
+  variant = "solid",
 }) => {
   const finalSize = sizeClasses[size]
   const finalVariant = variantClasses[variant]

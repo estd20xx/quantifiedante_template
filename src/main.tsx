@@ -5,9 +5,11 @@ import { Provider } from "react-redux"
 import { BrowserRouter } from "react-router"
 import { PersistGate } from "redux-persist/integration/react"
 
+import { HeroUIProvider } from "@heroui/react"
 import App from "./App"
 import { AppWrapper } from "./components/common/PageMeta"
 import { ThemeProvider } from "./context/ThemeContext"
+import { MembershipProvider } from "./hooks/membership"
 import "./index.css"
 import store, { persistor } from "./store/store"
 const queryClient = new QueryClient()
@@ -15,15 +17,19 @@ const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement)
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter basename="/predictive-application">
+    <BrowserRouter>
       <AppWrapper>
         <ThemeProvider>
           <Provider store={store}>
             <PersistGate loading={null} persistor={persistor}>
               <QueryClientProvider client={queryClient}>
-                <div className="w-full h-auto dark:bg-background bg-backgroundLight relative">
-                  <App />
-                </div>
+                <HeroUIProvider>
+                  <MembershipProvider>
+                    <div className="w-full h-auto dark:bg-background bg-backgroundLight relative">
+                      <App />
+                    </div>
+                  </MembershipProvider>
+                </HeroUIProvider>
               </QueryClientProvider>
             </PersistGate>
           </Provider>

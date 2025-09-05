@@ -1,14 +1,14 @@
 import { MemberType } from "@namelessnerd/quantifiedante"
 
 const DropDownMember = ({ member, paused }: { member: MemberType; paused?: boolean }) => {
-  const colors = {
+  const colors: Record<MemberType, string> = {
     "No Plan": "bg-[#F8F8F8] text-black",
     "Professional Membership Plan": `${paused ? "bg-proBadgeBg text-proBadgeText" : "bg-cyanCustom text-white"}`,
     "Novice Membership Plan": `${paused ? "bg-greenLight text-greenSurface" : "bg-greenSurface text-white"}`,
     "Elite Membership Plan": paused ? "bg-eliteBadge text-eliteBadgeText" : "text-white bg-orangeElite",
   }
 
-  const images = {
+  const images: Record<MemberType, string> = {
     "No Plan": "",
     "Professional Membership Plan": paused
       ? "https://Quantified-Ante.b-cdn.net/Dashboard%20Images/images/dashboard/quantified-ante-prefessional-membership-plan-paused-icon.svg"
