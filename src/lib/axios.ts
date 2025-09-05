@@ -1,15 +1,28 @@
 import axios from "axios"
 
 import { backendUrl } from "@/constants/myapi"
-
-const baseUrl = backendUrl
-
 export default axios.create({
-  baseURL: baseUrl,
+  baseURL: backendUrl,
+  headers: {
+    "Content-Type": "application/json",
+    "Cache-Control": "no-store",
+    Pragma: "no-cache",
+    Expires: "0",
+  },
+  params: {
+    t: new Date().getTime(),
+  },
 })
 
 export const axiosPrivate = axios.create({
-  baseURL: baseUrl,
-  headers: { "Content-Type": "application/json" },
-  withCredentials: true,
+  baseURL: backendUrl,
+  headers: {
+    "Content-Type": "application/json",
+    "Cache-Control": "no-store",
+    Pragma: "no-cache",
+    Expires: "0",
+  },
+  params: {
+    t: new Date().getTime(),
+  },
 })

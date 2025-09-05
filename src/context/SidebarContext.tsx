@@ -20,17 +20,15 @@ const SidebarContext = createContext<SidebarContextType | undefined>(undefined)
 
 export const useSidebar = () => {
   const context = useContext(SidebarContext)
-
   if (!context) {
     throw new Error("useSidebar must be used within a SidebarProvider")
   }
-
   return context
 }
 
 export const SidebarProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isExpanded, setIsExpanded] = useState<boolean>(() =>
-    JSON.parse(localStorage.getItem("@sideBarcollapse") ?? "true"),
+    JSON.parse(localStorage.getItem("@sideBarcollapse") ?? "true")
   )
   const [isApplicationMenuOpen, setApplicationMenuOpen] = useState(false)
   const [isMobileOpen, setIsMobileOpen] = useState(false)
@@ -46,7 +44,6 @@ export const SidebarProvider: React.FC<{ children: React.ReactNode }> = ({ child
   useEffect(() => {
     const handleResize = () => {
       const mobile = window.innerWidth < 768
-
       setIsMobile(mobile)
       if (!mobile) {
         setIsMobileOpen(false)
@@ -88,7 +85,7 @@ export const SidebarProvider: React.FC<{ children: React.ReactNode }> = ({ child
         toggleSubmenu,
         setIsMobileOpen,
         isApplicationMenuOpen,
-        setApplicationMenuOpen,
+        setApplicationMenuOpen
       }}
     >
       {children}

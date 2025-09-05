@@ -1,28 +1,34 @@
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import React from "react"
 import ReactDOM from "react-dom/client"
-import { BrowserRouter } from "react-router-dom"
+import { Provider } from "react-redux"
+import { BrowserRouter } from "react-router"
+import { PersistGate } from "redux-persist/integration/react"
 
-import "@/styles/globals.css"
-import App from "./App.tsx"
-import { SidebarProvider } from "./context/SidebarContext.tsx"
-import { ThemeProvider } from "./context/ThemeContext.tsx"
-import { MembershipProvider } from "./hooks/useMembership.tsx"
-import { Provider } from "./provider.tsx"
+import App from "./App"
+import { AppWrapper } from "./components/common/PageMeta"
+import { ThemeProvider } from "./context/ThemeContext"
+import "./index.css"
+import store, { persistor } from "./store/store"
+const queryClient = new QueryClient()
+const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement)
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
+root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <SidebarProvider>
+    <BrowserRouter basename="/predictive-application">
+      <AppWrapper>
         <ThemeProvider>
-          <MembershipProvider>
-            <Provider>
-              <div className="w-full h-auto dark:bg-background bg-backgroundLight relative">
-                <App />
-              </div>
-            </Provider>
-          </MembershipProvider>
+          <Provider store={store}>
+            <PersistGate loading={null} persistor={persistor}>
+              <QueryClientProvider client={queryClient}>
+                <div className="w-full h-auto dark:bg-background bg-backgroundLight relative">
+                  <App />
+                </div>
+              </QueryClientProvider>
+            </PersistGate>
+          </Provider>
         </ThemeProvider>
-      </SidebarProvider>
+      </AppWrapper>
     </BrowserRouter>
   </React.StrictMode>,
 )

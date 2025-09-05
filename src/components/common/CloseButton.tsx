@@ -1,13 +1,14 @@
+import { ClassValue } from "clsx"
 import { X } from "lucide-react"
 
-import { cn } from "@/lib/utils"
+import { cn } from "../../lib/utils"
 
 const CloseButton = ({
   onClose,
   parentClass,
   iconClass,
   size = 12,
-}: Readonly<{ parentClass?: string; iconClass?: string; onClose?: () => void; size?: number }>) => {
+}: Readonly<{ parentClass?: ClassValue; iconClass?: ClassValue; onClose?: () => void; size?: number }>) => {
   return (
     <button className={cn("py-2 flex gap-2 text-xs items-center text-black", parentClass)} onClick={onClose}>
       Close

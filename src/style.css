@@ -1,0 +1,16 @@
+.myshadow {
+    box-shadow: rgba(0, 19, 103, 0.35) 0px 5px 15px;
+}
+
+.modelvisible {
+    opacity: 999999999 !important;
+}
+
+.tableResponsive {
+    max-width: 100% !important;
+    overflow: auto !important;
+}
+
+table {
+    overflow-x: auto;
+}

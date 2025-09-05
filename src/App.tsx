@@ -1,15 +1,24 @@
-import { Route, Routes } from "react-router-dom"
+import { HeroUIProvider, ToastProvider } from "@heroui/react"
+import { Route, Routes } from "react-router"
+import "./style.css"
 
-import AppLayout from "./layouts/AppLayout"
-import NotFound from "./pages/NotFound.js"
-function App() {
+import ApthProvider from "./auth/Auth"
+import { MembershipProvider } from "./hooks/membership"
+import AppLayout from "./layout/AppLayout"
+import NotFound from "./pages/NotFound"
+
+export default function App() {
   return (
-    <Routes>
-      <Route />
-      <Route element={<AppLayout />}>
-        <Route element={<NotFound />} path={"*"} />
-      </Route>
-    </Routes>
+    <HeroUIProvider>
+      <ToastProvider />
+      <MembershipProvider>
+        <Routes>
+          <Route element={<ApthProvider />} path="/auth" />
+          <Route element={<AppLayout />}>
+            <Route element={<NotFound />} path="*" />
+          </Route>
+        </Routes>
+      </MembershipProvider>
+    </HeroUIProvider>
   )
 }
-export default App

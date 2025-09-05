@@ -7,7 +7,7 @@ export interface SearchTypes {
   url: string
   data: string
 }
-const url = websiteUrl as string
+const url = websiteUrl
 
 export const dataList: Array<SearchTypes> = [
   {

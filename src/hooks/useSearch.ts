@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-import { SearchTypes, dataList } from "@/data/searchData"
+import { SearchTypes, dataList } from "../data/searchData"
 
 export interface SearchResultInterface extends SearchTypes {
   snippet?: string
