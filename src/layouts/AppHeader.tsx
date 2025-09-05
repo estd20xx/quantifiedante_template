@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useRef } from "react"
 
 import NewNotificationDropDown from "../components/header/NewNotificationDropDown"
 import UserDropDownNew from "../components/header/UserDropDownNew"
@@ -7,40 +7,12 @@ import { useSearch } from "../hooks/useSearch"
 
 import Search from "@/components/header/Search"
 import { websiteUrl } from "@/constants/myapi"
-
-interface UserInfo {
-  user_contact: string
-  user_discord_id: string
-  user_email: string
-  user_first_name: string
-  user_last_name: string
-  user_nickname: string
-  user_password: string
-  user_tradingview_id: string
-  user_username: string
-  user_profile: string | File
-}
 const AppHeader: React.FC = () => {
   const { query, setQuery, isSearchBarOpen, setIsSearchBarOpen, animatedItems, isCartOpen, setIsCartOpen } =
     useSearch()
 
   const { isMobileOpen, toggleSidebar, toggleMobileSidebar, isApplicationMenuOpen, setApplicationMenuOpen } =
     useSidebar()
-
-  const [isTooltipOpen, setIsTooltipOpen] = useState(false)
-
-  const [userInfoData, setUserInfoData] = useState<UserInfo>({
-    user_contact: "",
-    user_discord_id: "",
-    user_email: "",
-    user_first_name: "",
-    user_last_name: "",
-    user_nickname: "",
-    user_password: "",
-    user_tradingview_id: "",
-    user_username: "",
-    user_profile: "",
-  })
 
   const handleToggle = () => {
     if (window.innerWidth >= 991) {
@@ -54,19 +26,6 @@ const AppHeader: React.FC = () => {
     setApplicationMenuOpen(!isApplicationMenuOpen)
   }
   const inputRef = useRef<HTMLInputElement>(null)
-
-  // const toggleTradeStatus = async () => {
-  //   if (!apiAccessToken) return
-  //   try {
-  //     const response = await axios.get(`${url}trade_signal_update?user_id=${localStorage.getItem("user_id")}`, {
-  //       headers: { Authorization: `Bearer ${apiAccessToken}` }
-  //     })
-  //     // setLoading(false)
-  //   } catch (err) {
-  //     // setError("Failed to change TradeStatus")
-  //     // setLoading(false)
-  //   }
-  // }
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
